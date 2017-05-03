@@ -83,15 +83,3 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CookFasterOptions", function(menu_mana
 	nodes[CookFaster.options_menu] = MenuHelper:BuildMenu( CookFaster.options_menu )
 	MenuHelper:AddMenuItem( MenuHelper.menus.lua_mod_options_menu, CookFaster.options_menu, "CookFaster_menu_title", "CookFaster_menu_desc")
 end)
-
-function CookFaster:DelayScript(them, element, instigator, delay)
-	if not delay or delay < 0 then
-		delay = 1
-	end
-	DelayedCalls:Add("DelayedCalls_CookFaster_DelayScript", delay, function()
-		if them and element and instigator then
-			them._mission_script:add(callback(element, element, "on_executed", instigator), 0.1, 1)
-			managers.network:session():send_to_peers_synched("run_mission_element", 100494, instigator, 0)
-		end
-	end)
-end
