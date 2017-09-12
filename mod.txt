@@ -5,6 +5,7 @@
 	"contact": " ",
 	"version": "4",
 	"priority": 1,
+	"blt_version": 2,
 	"hooks": [
 		{
 			"hook_id": "lib/managers/localizationmanager",
