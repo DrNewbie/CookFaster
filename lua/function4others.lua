@@ -81,5 +81,5 @@ end)
 
 Hooks:Add("MenuManagerBuildCustomMenus", "CookFasterOptions", function(menu_manager, nodes)
 	nodes[CookFaster.options_menu] = MenuHelper:BuildMenu( CookFaster.options_menu )
-	MenuHelper:AddMenuItem( MenuHelper.menus.lua_mod_options_menu, CookFaster.options_menu, "CookFaster_menu_title", "CookFaster_menu_desc")
+	MenuHelper:AddMenuItem(nodes["blt_options"], CookFaster.options_menu, "CookFaster_menu_title", "CookFaster_menu_desc")
 end)
