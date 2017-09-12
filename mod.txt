@@ -3,7 +3,7 @@
 	"description": "Increase cooking speed in Cook OFF and Rats Day 1",
 	"author": "Dr_Newbie",
 	"contact": " ",
-	"version": "4",
+	"version": "5",
 	"priority": 1,
 	"blt_version": 2,
 	"hooks": [
