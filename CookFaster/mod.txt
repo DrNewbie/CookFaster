@@ -1,23 +1,23 @@
 {
-	"name": "Cook Faster",
-	"description": "Increase cooking speed in Cook OFF and Rats Day 1",
-	"author": "Dr_Newbie",
-	"contact": " ",
-	"version": "5",
-	"priority": 1,
-	"blt_version": 2,
-	"hooks": [
-		{
-			"hook_id": "lib/managers/localizationmanager",
-			"script_path": "lua/function4others.lua"
-		},
-		{
-			"hook_id": "core/lib/managers/mission/coremissionscriptelement",
-			"script_path": "lua/coremissionscriptelement.lua"
-		},
-		{
-			"hook_id": "core/lib/managers/mission/coreelementtimer",
-			"script_path": "lua/coreelementtimer.lua"
-		}
-	]
+  "name": "Cook Faster",
+  "description": "Increase cooking speed in Boorder Crystals, Cook Off, Rats Day 1, Hotline Miami Day 1 and The Bomb: Dockyard.",
+  "author": "Dr_Newbie",
+  "contact": "http://modwork.shop/16161",
+  "version": "10",
+  "priority": 100,
+  "blt_version": 2,
+  "hooks": [
+    {
+      "hook_id": "lib/managers/localizationmanager",
+      "script_path": "lua/function4others.lua"
+    },
+    {
+      "hook_id": "core/lib/managers/mission/coremissionscriptelement",
+      "script_path": "lua/coremissionscriptelement.lua"
+    },
+    {
+      "hook_id": "core/lib/managers/mission/coreelementtimer",
+      "script_path": "lua/coreelementtimer.lua"
+    }
+  ]  
 }

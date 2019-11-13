@@ -3,32 +3,33 @@ core:import("CoreXml")
 core:import("CoreCode")
 core:import("CoreClass")
 
-local CookFaster = _G.CookFaster or {}
-
-if not CookFaster or not CookFaster.settings then
+if not Global.game_settings then
 	return
 end
 
-if not Global.game_settings or (Global.game_settings.level_id ~= "rat" and Global.game_settings.level_id ~= "alex_1") then
-	return
-end
+Hooks:PreHook(MissionScriptElement, "_calc_base_delay", "CookFaster_calc_base_delay", function(self)
+	local CookFaster = _G.CookFaster or {}
+	if not CookFaster or not CookFaster.settings then
+		return
+	end
+	if Global.game_settings.level_id == "rat" or Global.game_settings.level_id == "alex_1" then
+		if self._id == 102197 and CookFaster.settings.Bile_Coming then
+			self._values.base_delay_rand = nil
+			self._values.base_delay = 1
+		end
+	end
+end)
 
-function MissionScriptElement:_calc_base_delay()
-	if self._id == 102197 and CookFaster.settings.Bile_Coming then
-		return 1
+Hooks:PreHook(MissionScriptElement, "_calc_element_delay", "CookFaster_calc_element_delay", function(self, params)
+	local CookFaster = _G.CookFaster or {}
+	if not CookFaster or not CookFaster.settings then
+		return
 	end
-	if not self._values.base_delay_rand then
-		return self._values.base_delay
+	if ((Global.game_settings.level_id == "rat" or Global.game_settings.level_id == "alex_1") and self._id == 100724) or 
+		(Global.game_settings.level_id == "mex_cooking" and (self._id == 187023 or self._id == 186906 or self._id == 187024)) or 
+		((Global.game_settings.level_id == "mia_1" or Global.game_settings.level_id == "crojob2") and self._editor_name == "timer_to_next") then
+		params.delay_rand = nil
+		params.delay = CookFaster.settings.Delay
+		return CookFaster.settings.Delay + 0.1
 	end
-	return self._values.base_delay + math.rand(self._values.base_delay_rand)
-end
-
-function MissionScriptElement:_calc_element_delay(params)
-	if self._id == 100724 then
-		return CookFaster.settings.Delay
-	end
-	if not params.delay_rand then
-		return params.delay
-	end
-	return params.delay + math.rand(params.delay_rand)
-end
+end)
