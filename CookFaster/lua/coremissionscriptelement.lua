@@ -26,7 +26,7 @@ Hooks:PreHook(MissionScriptElement, "_calc_element_delay", "CookFaster_calc_elem
 		return
 	end
 	if ((Global.game_settings.level_id == "rat" or Global.game_settings.level_id == "alex_1") and self._id == 100724) or 
-		(Global.game_settings.level_id == "mex_cooking" and (self._id == 187023 or self._id == 186906 or self._id == 187024)) or 
+		(Global.game_settings.level_id == "mex_cooking" and self._editor_name == "counter_below3") or 
 		((Global.game_settings.level_id == "mia_1" or Global.game_settings.level_id == "crojob2") and self._editor_name == "timer_to_next") then
 		params.delay_rand = nil
 		params.delay = CookFaster.settings.Delay

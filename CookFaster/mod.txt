@@ -3,7 +3,7 @@
   "description": "Increase cooking speed in Boorder Crystals, Cook Off, Rats Day 1, Hotline Miami Day 1 and The Bomb: Dockyard.",
   "author": "Dr_Newbie",
   "contact": "http://modwork.shop/16161",
-  "version": "10",
+  "version": "11",
   "priority": 100,
   "blt_version": 2,
   "hooks": [
